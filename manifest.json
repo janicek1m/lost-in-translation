@@ -9,7 +9,7 @@
         "default_icons": "logo.png"
     },
     "icons": {
-        "48": "logo.png"
+        "48": "icon.png"
     },
     "permissions": [
         "tabs", "<all_urls>"
