@@ -7,6 +7,8 @@ function runEasyMode() {
     var button = document.getElementById('easyMode');
     button.setAttribute("disabled", "true");
     button.style.backgroundColor = "#A3EA67";
+    button.style.width = '20px';
+    button.style.height = '20px';
 }
 
 document.getElementById('easyMode').addEventListener('click', runEasyMode);
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', documentEvents, false);
 
 function addToDictionary(input) {
     let words = input.value.split(" ");
-    if(words.length == 2) {
+    if (words.length == 2) {
         chrome.storage.sync.get(["englishDictionary", "spanishDictionary"], function(result) {
             result.englishDictionary.push(words[0]);
             result.spanishDictionary.push(words[1]);
@@ -24,13 +26,13 @@ function addToDictionary(input) {
             chrome.storage.sync.remove('englishDictionary', function() {
                 console.log("removed");
             });
-            chrome.storage.sync.set({'englishDictionary': tempDict}, function() {
+            chrome.storage.sync.set({ 'englishDictionary': tempDict }, function() {
                 console.log('updated english dictionary');
             });
             chrome.storage.sync.remove('spanishDictionary', function() {
                 console.log("removed");
             });
-            chrome.storage.sync.set({'spanishDictionary': tempDict2}, function() {
+            chrome.storage.sync.set({ 'spanishDictionary': tempDict2 }, function() {
                 console.log('updated spanish dictionary');
             });
         });
