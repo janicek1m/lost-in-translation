@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener(function() {
         englishDictionary: ["than", "is", "for", "very", "of", "and", "with", "my", "him", "her",
             "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
             "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part",
-            "child", "eye", "woman", "place", "work", "week", "case", "point", "govenrment",
+            "child", "eye", "woman", "place", "work", "week", "case", "point", "government",
             "company", "number", "group", "problem", "fact", "school", "room", "mother", "father"
         ],
         translatedDictionary: []
