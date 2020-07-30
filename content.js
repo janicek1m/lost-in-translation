@@ -1,8 +1,7 @@
-chrome.storage.sync.get(["englishDictionary", "spanishDictionary"], function(result) {
+chrome.storage.sync.get(["englishDictionary", "translatedDictionary"], function(result) {
+    var theAPIKey = "AIzaSyBttL3_rUfMaP8vZQazT8bCd5XhHkmR4lA";
     var englishDictionary = result.englishDictionary;
-    var spanishDictionary = result.spanishDictionary;
-    console.log(englishDictionary);
-    console.log(spanishDictionary);
+    var translatedDictionary = result.translatedDictionary;
 
     var elements = document.getElementsByTagName('*');
 
@@ -14,7 +13,7 @@ chrome.storage.sync.get(["englishDictionary", "spanishDictionary"], function(res
                 if (node.nodeType === 3) {
                     var text = node.nodeValue;
                     var searchWord = new RegExp('\\b' + englishDictionary[k] + '\\b', "gi");
-                    var replacedText = text.replace(searchWord, spanishDictionary[k]);
+                    var replacedText = text.replace(searchWord, translatedDictionary[k]);
                     if (replacedText !== text) {
                         element.replaceChild(document.createTextNode(replacedText), node);
                     }
