@@ -1,11 +1,12 @@
 chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set ({
-        englishDictionary : ["than", "in", "why", "after", "of", "and", "with", "my", "him", "her", 
-                                "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-                                "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part",
-                                "child", "eye", "woman", "place", "work", "week", "case", "point", "govenrment",
-                                "company", "number", "group", "problem", "fact","school", "room", "mother", "father"],
-        translatedDictionary : []
+    chrome.storage.sync.set({
+        englishDictionary: ["than", "is", "for", "very", "of", "and", "with", "my", "him", "her",
+            "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+            "person", "year", "way", "day", "thing", "man", "world", "life", "hand", "part",
+            "child", "eye", "woman", "place", "work", "week", "case", "point", "govenrment",
+            "company", "number", "group", "problem", "fact", "school", "room", "mother", "father"
+        ],
+        translatedDictionary: []
     }, function() {
         console.log("dictionaries set up")
     });
@@ -19,9 +20,9 @@ chrome.runtime.onInstalled.addListener(function() {
                                     "niño", "ojo", "mujer", "sitio", "trabajo", "semana", "caso", "punto", "gobierno",
                                     "empresa", "número", "grupo", "problema", "hecho", "colegio", "habitación", "madre", "padre"];
         */
-       console.log(result.englishDictionary);
-       var tempTranslatedDictionary = [];
-        for(var i = 0; i < result.englishDictionary.length; i++) {
+        console.log(result.englishDictionary);
+        var tempTranslatedDictionary = [];
+        for (var i = 0; i < result.englishDictionary.length; i++) {
             var temp = result.englishDictionary[i].toString();
             translation(temp, i);
         }
@@ -33,7 +34,7 @@ chrome.runtime.onInstalled.addListener(function() {
                 //es = spanish, fr = french, etc.
                 'target': "es"
             };
-                ajaxRequest("POST", baseUrl + "?key=" + theAPIKey, handleTranslationResponse, JSON.stringify(content));
+            ajaxRequest("POST", baseUrl + "?key=" + theAPIKey, handleTranslationResponse, JSON.stringify(content));
         }
 
 
@@ -51,7 +52,7 @@ chrome.runtime.onInstalled.addListener(function() {
                 chrome.storage.sync.remove('translatedDictionary', function() {
                     console.log("removed");
                 });
-                chrome.storage.sync.set({ 'translatedDictionary': tempTranslatedDictionary}, function() {
+                chrome.storage.sync.set({ 'translatedDictionary': tempTranslatedDictionary }, function() {
                     console.log(tempTranslatedDictionary);
                     console.log('updated translated dictionary');
                 });
@@ -59,7 +60,7 @@ chrome.runtime.onInstalled.addListener(function() {
             //console.log(tempTranslatedDictionary);
         }
 
-        
+
         function ajaxRequest(method, url, handlerFunction, content) {
             var xhttp = new XMLHttpRequest();
             xhttp.open(method, url);
