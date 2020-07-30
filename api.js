@@ -30,15 +30,16 @@ function handleTranslationResponse() {
         var translated_text = "";
         response_json["data"]["translations"].forEach(function(element) {
             translated_text += element['translatedText'] + '\n';
+            translatedArray.push(translated_text);
         });
         //fr = french, es = english , etc.
-        var target_lang = "fr";
-        translatedArray.push(translated_text.toString());
-        // console.log(translatedArray);
-    }
-    console.log(translatedArray);
-}
+        // var target_lang = "fr";
 
+        console.log(translatedArray);
+    }
+
+}
+// console.log(translatedArray);
 
 function ajaxRequest(method, url, handlerFunction, content) {
     var xhttp = new XMLHttpRequest();
